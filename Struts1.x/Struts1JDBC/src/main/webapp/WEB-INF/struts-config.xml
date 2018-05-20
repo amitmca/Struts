@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="user" type="com.tutorials4u.model.User" />
+	</form-beans>
+	<action-mappings>
+		<action path="/helloWorld" type="org.apache.struts.actions.ForwardAction" parameter="/index.jsp">
+		</action>
+
+		<action path="/insertUser" type="com.tutorials4u.actions.UserAction"
+			name="user" input="/index.jsp" parameter="insertUser">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+
+		<action path="/listUsers" type="com.tutorials4u.actions.UserAction"
+			parameter="listUsers">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+		
+		<action path="/deleteUser" type="com.tutorials4u.actions.UserAction"
+			parameter="deleteUser">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+		
+		<action path="/editUser" type="com.tutorials4u.actions.UserAction"
+			parameter="editUser">
+			<forward name="success" path="/edituser.jsp" />
+		</action>
+		
+		<action path="/updateUser" type="com.tutorials4u.actions.UserAction"
+			name="user" input="/edituser.jsp" parameter="updateUser">
+			<forward name="success" path="/listUsers.do" />
+		</action>
+	</action-mappings>
+</struts-config>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="user">
+
+	<typeAlias alias="USER" type="com.tutorials4u.model.User" />
+
+	<resultMap id="userResultMap" class="USER">
+		<result property="user_id" column="USER_ID" />
+		<result property="username" column="USERNAME" />
+		<result property="password" column="PASSWORD" />
+		<result property="firstName" column="FIRSTNAME" />
+		<result property="lastName" column="LASTNAME" />
+		<result property="phone" column="PHONE" />
+		<result property="emailId" column="EMAILID" />
+
+	</resultMap>
+
+	<select id="listUsers" resultMap="userResultMap">
+		SELECT * FROM MYUSER
+	</select>
+
+	<insert id="insertUser" parameterClass="USER">
+		INSERT INTO MYUSER
+		(USERNAME,PASSWORD,FIRSTNAME,LASTNAME,PHONE,EMAILID)
+		VALUES(#username#,#password#,#firstName#,#lastName#,#phone#,#emailId#);
+	</insert>
+
+	<delete id="deleteUser" parameterClass="java.lang.Integer">
+		DELETE FROM MYUSER WHERE USER_ID = #value#
+	</delete>
+
+	<select id="getUserById" parameterClass="java.lang.Integer"
+		resultMap="userResultMap">
+		SELECT * FROM MYUSER WHERE USER_ID = #value#
+	</select>
+
+	<update id="updateUser" parameterClass="USER">
+		UPDATE MYUSER
+		SET USERNAME = #username#,
+		PASSWORD     = #password#, 
+		FIRSTNAME    = #firstName#,
+		LASTNAME     = #lastName#,
+		PHONE        = #phone#,
+		EMAILID      = #emailId#
+		WHERE USER_ID = #user_id#
+	</update>
+
+</sqlMap>

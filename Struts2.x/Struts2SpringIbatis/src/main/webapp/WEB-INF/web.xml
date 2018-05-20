@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+  <display-name>Struts2 + Spring + iBatis Integration</display-name>
+  <filter>
+    <filter-name>struts2springibatis</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2springibatis</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+      <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>

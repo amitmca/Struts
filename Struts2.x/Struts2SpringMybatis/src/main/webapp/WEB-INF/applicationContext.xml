@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+ 
+<beans>
+    <!-- Business Objects -->
+    <bean id="businessDelegate"
+            class="com.tutorials4u.business.BusinessDelegate">
+    </bean>
+ 
+    <!-- Actions Classes -->   
+    <bean name="insertAction" class="com.tutorials4u.actions.UserAction">
+        <property name="businessDelegate"><ref local="businessDelegate"/></property>
+    </bean>
+    
+    <bean name="listUsersAction" class="com.tutorials4u.actions.UserAction">
+        <property name="businessDelegate"><ref local="businessDelegate"/></property>
+    </bean>
+    
+    <bean name="deleteUserAction" class="com.tutorials4u.actions.UserAction">
+        <property name="businessDelegate"><ref local="businessDelegate"/></property>
+    </bean>
+    
+    <bean name="editUserAction" class="com.tutorials4u.actions.UserAction">
+        <property name="businessDelegate"><ref local="businessDelegate"/></property>
+    </bean>
+    
+    <bean name="updateUserAction" class="com.tutorials4u.actions.UserAction">
+        <property name="businessDelegate"><ref local="businessDelegate"/></property>
+    </bean>
+</beans>

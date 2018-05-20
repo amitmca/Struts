@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.tcs.model.Movie" table="movies">
+      <meta attribute="class-description">
+         This class contains the User detail. 
+      </meta>
+      <id name="id" type="int" column="ID">
+         <generator class="native"/>
+      </id>
+      <property name="title" column="TITLE" type="string"/>
+      <property name="releaseYear" column="RELEASEYEAR" type="string"/>
+      <property name="director" column="DIRECTOR" type="string"/>
+      <property name="genre" column="GENRE" type="string"/>
+   </class>
+</hibernate-mapping>

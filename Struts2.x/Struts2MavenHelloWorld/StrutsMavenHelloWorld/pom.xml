@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.javahonk</groupId>
+	<artifactId>StrutsMavenHelloWorld</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>StrutsMavenHelloWorld Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>		
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.16.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.6</version>
+			<scope>system</scope>
+			<systemPath>C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar</systemPath>
+		</dependency>
+		
+	</dependencies>
+	<build>
+		<finalName>StrutsMavenHelloWorld</finalName>
+	</build>
+</project>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="user" type="com.tutorials4u.model.User" />
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/insertUser"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="user"
+			input="/index.jsp" parameter="insertUser">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+
+		<action path="/listUsers"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="listUsers">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+
+		<action path="/deleteUser"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="deleteUser">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+
+		<action path="/editUser"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="editUser">
+			<forward name="success" path="/edituser.jsp" />
+		</action>
+
+		<action path="/updateUser"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="user"
+			input="/edituser.jsp" parameter="updateUser">
+			<forward name="success" path="/listusers.jsp" />
+		</action>
+	</action-mappings>
+
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/ApplicationContext.xml" />
+	</plug-in>
+</struts-config>
+

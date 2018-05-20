@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.tutorials4u.mybatis.mappers.UserMapper">
+ 
+ 	<resultMap id="UserResultMap" type="User">
+		 <id property="user_id" column="USER_ID" />
+		 <result property="username" column="USERNAME"/>
+		 <result property="password" column="PASSWORD"/>
+		 <result property="firstName" column="FIRSTNAME"/>
+		 <result property="lastName" column="LASTNAME"/>
+		 <result property="phone" column="PHONE"/>
+		 <result property="emailId" column="EMAILID"/>
+	</resultMap>
+		
+	<insert id="insertUser" parameterType="user">
+		INSERT INTO myuser (USERNAME,PASSWORD,FIRSTNAME,LASTNAME,PHONE,EMAILID) 
+    	VALUES (#{username},#{password},#{firstName},#{lastName},#{phone},#{emailId})
+	</insert>
+	
+	<select id="getAllUsers" resultMap="UserResultMap">  
+		SELECT USER_ID,USERNAME,FIRSTNAME,LASTNAME,PHONE,EMAILID
+		FROM myuser; 
+	</select>
+	
+	<select id="getUserById" resultMap="UserResultMap">  
+		SELECT USER_ID,USERNAME,PASSWORD,FIRSTNAME,LASTNAME,PHONE,EMAILID
+		FROM myuser 
+		WHERE USER_ID=#{user_id} 
+	</select>
+	
+	<update id="updateUser" parameterType="user">
+		UPDATE myuser  
+    	SET
+    		USERNAME = #{username},
+    	    PASSWORD = #{password},
+    	    FIRSTNAME= #{firstName},
+    	    LASTNAME = #{lastName},
+    	    PHONE    = #{phone},
+    	    EMAILID  = #{emailId}
+    	WHERE 
+    		USER_ID = #{user_id}    
+	</update>
+	
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM
+		myuser
+		WHERE USER_ID = #{user_id}
+	</delete>
+	
+	<select id="getUserByUsername" resultMap="UserResultMap">  
+		SELECT USER_ID,USERNAME,PASSWORD,FIRSTNAME,LASTNAME,PHONE,EMAILID
+		FROM myuser 
+		WHERE USERNAME = #{username}  
+	</select>
+</mapper> 
